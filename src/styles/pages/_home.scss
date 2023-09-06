@@ -1,0 +1,42 @@
+body {
+    background: #FFFFFF;
+    background-repeat: no-repeat;
+    .home {
+        height: 100vh;
+        width: 100vw;
+        .logo-luminelles {
+            text-align: center;
+
+            img {
+                width: 400px;
+            }
+        }
+        .intro {
+            display: flex;
+            margin: 50px 50px;
+            color: rgb(0, 0, 0);
+            font-size: 1.2rem;
+            border-radius: 50px;
+            padding: 20px;
+            margin: 0 200px;
+            
+            .intro-container {
+                display: flex;
+                flex-direction: column;
+                background: rgb(255, 255, 255);
+
+                div {
+                    margin: 10px 20px;
+                    padding: 10px 20px;
+                    font-family: $font-3;
+                    width: 80%;
+                }
+            }
+            .profil {
+                img {
+                    width: 200px;
+                }
+            }
+        }
+    }
+}

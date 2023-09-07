@@ -13,8 +13,8 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_n5uayy4",
-        process.env.TEMPLATE_ID,
+        "service_j2zhfsf",
+        "qlp8t0l",
         form.current,
         process.env.REACT_APP_ID
       )
@@ -42,7 +42,13 @@ const Contact = () => {
       <h2>Contactez-moi</h2>
       <form ref={form} onSubmit={sendEmail} className="form-content">
         <label>Nom / Entreprise</label>
-        <input type="text" name="name" required autoComplete="off" />
+        <input
+          type="text"
+          name="from_name"
+          required
+          autoComplete="off"
+          id="nom"
+        />
         <label>Email</label>
         <input type="email" name="email" required autoComplete="off" />
         <label>Message</label>

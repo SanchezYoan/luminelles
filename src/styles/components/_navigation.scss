@@ -6,6 +6,10 @@
     line-height: 28px;
     color: $color-2;
     font-family: $font-1;
+
+    ul li {
+      margin: 5px;
+    }
   
     &:before {
       content: '';

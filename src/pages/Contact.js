@@ -1,56 +1,59 @@
 import React from "react";
-import { useRef } from "react";
-import { init } from "@emailjs/browser";
-import emailjs from "@emailjs/browser";
-init(process.env.ID);
+import Navigation from "../components/Navigation";
+import ContactForm from "../components/ContactForm";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import SocialNetwork from "../components/SocialNetwork";
 
 const Contact = () => {
-  const form = useRef();
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-    const formMess = document.querySelector(".form-message");
-
-    emailjs
-      .sendForm(
-        "service_j2zhfsf",
-        "nfp2mde",
-        form.current,
-        process.env.REACT_APP_ID
-      )
-      .then(
-        (result) => {
-          // console.log(result.text);
-          form.current.reset();
-          formMess.innerHTML = "<p className='success'>Message envoyé !</p>";
-
-          setTimeout(() => {
-            formMess.innerHTML = "";
-          }, 2500);
-        },
-
-        (error) => {
-          // console.log(error.text);
-          formMess.innerHTML =
-            "<p className='success'>Une erreur c'est produite, veuillez réesayer</p>";
-        }
-      );
-  };
-
   return (
-    <div className="form-container">
-      <h2>Contactez-moi</h2>
-      <form ref={form} onSubmit={sendEmail} className="form-content">
-        <label>Nom / Entreprise</label>
-        <input type="text" name="name" required autoComplete="off" />
-        <label>Email</label>
-        <input type="email" name="email" required autoComplete="off" />
-        <label>Message</label>
-        <textarea name="message" id="mess" />
-        <input type="submit" value="Envoyer" className="hover button" />
-      </form>
-      <div className="form-message"></div>
-    </div>
+    <main>
+      <div className="contact">
+        <Navigation />
+        {/* <Logo /> */}
+        <ContactForm />
+        <div className="contact-infos">
+          <div className="adress">
+            <div className="content">
+              <h4>adresse</h4>
+              <p>1 avenue Lepic</p>
+              <p>34070 Montpellier</p>
+            </div>
+          </div>
+          <div className="phone">
+            <div className="content">
+              <h4>téléphone</h4>
+              <CopyToClipboard text="0781951036" className="hover">
+                <p
+                  style={{ cursor: "pointer" }}
+                  className="clipboard"
+                  onClick={() => alert("téléphone copié")}
+                >
+                  07 81 95 10 36
+                </p>
+              </CopyToClipboard>
+            </div>
+          </div>
+          <div className="email">
+            <div className="content">
+              <h4>email</h4>
+              <CopyToClipboard text="yoan30470@hotmail.fr" className="hover">
+                <p
+                  style={{ cursor: "pointer" }}
+                  className="clipboard"
+                  onClick={() => alert("email copié")}
+                >
+                  yoan30470@hotmail.fr
+                </p>
+              </CopyToClipboard>
+            </div>
+          </div>
+          <SocialNetwork />
+          <div className="credits">
+            <p>Sanchez Yoan - 2023</p>
+          </div>
+        </div>
+      </div>
+    </main>
   );
 };
 

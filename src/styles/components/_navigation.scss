@@ -1,66 +1,88 @@
 .navigation {
-    position: absolute;
-    top: 1rem;
-    left: 1.4rem;
-    font-size: 1.7rem;
-    line-height: 28px;
-    color: $color-2;
-    font-family: $font-1;
+  position: absolute;
+  top: 1rem;
+  left: 1.4rem;
+  font-size: 1.4rem;
+  line-height: 28px;
+  color: $color-4;
 
-    ul li {
-      margin: 5px;
+  &:before {
+    content: '';
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    background: $color-3;
+    top: -150px;
+    left: -160px;
+    z-index: -1;
+    animation: navAnim 20s infinite alternate;
+
+    @keyframes navAnim {
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
     }
-  
-    &:before {
-      content: '';
+    @media screen and (max-width: 430px){
+      height: 50px;
+      width: 50px;
+    }
+  }
+  .nav-active {
+    color: $black;
+  }
+  ul:hover li:not(:hover) {
+    opacity: .5;
+  }
+  ul:hover li:hover {
+    color: $black;
+  }
+
+  .nav-portfolio {
+    cursor: pointer;
+    display: flex;
+    // padding-right: 6rem;
+    transition: .5s;
+    
+    &:hover .nav-projects,
+    .nav-projects:hover {
+      
+      visibility: visible;
+      font-size: 0.9rem;;
+      opacity: 1;
+
+
+      li {
+        transform: rotatey(0deg)
+      }
+    }
+
+    .nav-projects {
       position: absolute;
-      height: 300px;
+      visibility: hidden;
+      opacity: 0;
+      padding: 0 40px;
       width: 300px;
-      border-radius: 50%;
-      background: $color-3;
-      top: -150px;
-      left: -160px;
-      z-index: -1;
-      animation: navAnim 20s infinite alternate;
-  
-      @keyframes navAnim {
-        50% {
-          transform: scale(1.2);
-        }
-        100% {
-          transform: scale(1);
-        }
-      }
-      @media screen and (max-width: 430px){
-        height: 50px;
-        width: 50px;
-      }
-    }
-    .nav-active {
-      color: $black;
-    }
-    ul:hover li:not(:hover) {
-      opacity: .5;
-    }
-    ul:hover li:hover {
-      color: $black;
-    }
-  
-    .nav-portfolio {
-      cursor: pointer;
-      display: flex;
-      // padding-right: 6rem;
-      transition: .5s;
-  
-      &:hover .nav-projects,
-      .nav-projects:hover {
-  
-        visibility: visible;
-        opacity: 1;
-  
-        li {
-          transform: rotatey(0deg)
+      transform: translateX(100px);
+      transition: .3s ;
+      perspective: 500px;
+
+      
+      li {
+        transform: rotatey(30deg) scaleX(1.2);
+        transform-origin: center;
+        transition: .3s;
+        width: 60%;
+        text-align: center;
+        // padding: px;
+        border-radius: 50px;
+        &:hover {
+          background: rgb(160, 160, 228);
         }
       }
     }
   }
+}

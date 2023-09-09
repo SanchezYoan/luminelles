@@ -22,13 +22,13 @@ const Contact = () => {
           <div className="phone">
             <div className="content">
               <h4>téléphone</h4>
-              <CopyToClipboard text="0781951036" className="hover">
+              <CopyToClipboard text="0661324529" className="hover">
                 <p
                   style={{ cursor: "pointer" }}
                   className="clipboard"
                   onClick={() => alert("téléphone copié")}
                 >
-                  07 81 95 10 36
+                  06.61.32.45.29
                 </p>
               </CopyToClipboard>
             </div>
@@ -36,13 +36,13 @@ const Contact = () => {
           <div className="email">
             <div className="content">
               <h4>email</h4>
-              <CopyToClipboard text="yoan30470@hotmail.fr" className="hover">
+              <CopyToClipboard text="lumin.elles@yahoo.com" className="hover">
                 <p
                   style={{ cursor: "pointer" }}
                   className="clipboard"
                   onClick={() => alert("email copié")}
                 >
-                  yoan30470@hotmail.fr
+                  lumin.elles@yahoo.com
                 </p>
               </CopyToClipboard>
             </div>

@@ -24,6 +24,9 @@ const SeeMore = () => {
         </div>
         <div className="info-media"></div>
       </div>
+      <div className="consign">
+        <p>{SeeMoreData[0].annulation}</p>
+      </div>
     </div>
   );
 };

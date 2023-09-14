@@ -23,6 +23,9 @@
   $red: rgb(253, 87, 87);
   
   * {
+    textarea {
+      resize: none;
+    }
     margin: 0;
     padding: 0;
     box-sizing: border-box;

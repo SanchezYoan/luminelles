@@ -14,7 +14,7 @@ export const SeeMoreData = [
 
     reservation: "Le règlement peut s'effectuer en 2 fois sans frais",
     annulation:
-      "Toute annulation devra être effectuée au moins une semaine à l'avance et dans le meilleur des cas, en ayant la gentillesse de trouver une remplaçante. Les lieux, activités et prestations étant déjà réservées, il est préférable que nous soyons au complet.",
+      "Toute annulation devra être effectuée au moins 10 jours à l'avance et dans le meilleur des cas, en ayant la gentillesse de trouver une remplaçante. Les lieux, activités et prestations étant déjà réservées, il est préférable que nous soyons au complet.",
     conclusion:
       "Si vous êtes partante pour cette aventure, je vous pris de m'envoyer un petit message dans la section Contact ou de directement nous rejoindre sur facebook ou instagram pour être au courant des évènements à venir.",
   },

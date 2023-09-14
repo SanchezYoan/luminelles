@@ -9,14 +9,18 @@ const Home = () => {
       <Navigation />
       <SocialNetwork />
       <div className="logo-luminelles">
-        <img src="./assets/img/logo-luminelles.png" alt="luminelles" />
+        <img
+          className="logo"
+          src="./assets/img/logo-luminelles.png"
+          alt="luminelles"
+        />
       </div>
       <div className="intro">
         <div className="intro-container">
           <div>
             {HomeData[0].intro1}
 
-            <i class="fa-solid fa-venus"></i>
+            <i className="fa-solid fa-venus"></i>
           </div>
           <div>{HomeData[0].intro2}</div>
           <div>{HomeData[0].intro3}</div>

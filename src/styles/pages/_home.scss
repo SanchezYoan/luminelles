@@ -4,12 +4,44 @@ body {
     .home {
         height: 100vh;
         width: 100vw;
+
         .logo-luminelles {
             text-align: center;
+            
+            @keyframes logolum {
+                0% {
 
-            img {
-                width: 400px;
+                    transform: scale(0.4);
+                    transform: rotate(-90deg);
+                }
+                10% {
+
+                }
+                50% {
+                    transform: scale(1.2);
+                }
+                100% {
+                    transform: rotate(0deg)
+                    
+                }
             }
+            @keyframes logolumauto {
+                50% {
+                    transform: rotate(15deg);
+                }
+                100% {
+                    transform: rotate(-15deg);
+                }
+            }
+            .logo {
+                width: 400px;
+                height: auto;
+                transition: transform 1s ease; /* Transition pour l'effet de zoom */
+                animation: logolum 4s forwards;
+                margin-bottom: 60px;
+                
+            }
+            
         }
         .intro {
             display: flex;
@@ -24,7 +56,7 @@ body {
                 display: flex;
                 flex-direction: column;
                 background: rgb(255, 255, 255);
-
+                
                 div {
                     margin: 10px 20px;
                     padding: 10px 20px;
@@ -35,8 +67,10 @@ body {
             .profil {
                 img {
                     width: 200px;
+                    border-radius: 100%;
                 }
             }
+            
         }
     }
 }

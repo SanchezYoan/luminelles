@@ -1,16 +1,16 @@
 const express = require("express");
 const router = express.Router();
-const { setPosts } = require("../controllers/post.controller");
+const {
+  setPosts,
+  getPosts,
+  editPost,
+} = require("../controllers/post.controller");
 
-router.get("/", (req, res) => {
-  res.json({ message: "this is data" });
-});
+router.get("/", getPosts);
 
 router.post("/", setPosts);
 
-router.put("/:id", (req, res) => {
-  res.json({ messageId: req.params.id });
-});
+router.put("/:id", editPost);
 
 router.delete("/:id", (req, res) => {
   res.json({ message: "Post supprimé id : " + req.params.id });

@@ -19,10 +19,10 @@ const WeekEnd = () => {
   };
 
   // Fonction de gestion de la soumission du formulaire
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log();
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log();
+  // };
 
   return (
     <div className="seeMore">

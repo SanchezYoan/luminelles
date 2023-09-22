@@ -36,8 +36,19 @@ const editPost = async (req, res) => {
   res.status(200).json(updatePost);
 };
 
+const deletePost = async (req, res) => {
+  const post = await PostModel.findById(req.params.id);
+
+  if (!post) {
+    res.status(400).json({ message: "Ce post n'existe pas" });
+  }
+
+  await post.deleteOne();
+  res.status(200).json({ message: "Message supprimé ! " + post });
+};
 module.exports = {
   setPosts,
   getPosts,
   editPost,
+  deletePost,
 };

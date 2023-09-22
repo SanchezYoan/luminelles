@@ -4,6 +4,7 @@ const {
   setPosts,
   getPosts,
   editPost,
+  deletePost,
 } = require("../controllers/post.controller");
 
 router.get("/", getPosts);
@@ -12,9 +13,7 @@ router.post("/", setPosts);
 
 router.put("/:id", editPost);
 
-router.delete("/:id", (req, res) => {
-  res.json({ message: "Post supprimé id : " + req.params.id });
-});
+router.delete("/:id", deletePost);
 
 router.patch("/like-post/:id", (req, res) => {
   res.json({ message: "Post liké : " + id });

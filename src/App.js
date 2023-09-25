@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import React from "react";
 import WeekEnd from "./pages/WeekEnd";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";

@@ -7,12 +7,11 @@ const NewPost = ({ userId }) => {
   const handleForm = (e) => {
     e.preventDefault();
 
-    axios
-      .post("http://localhost:5000/post/", {
-        message,
-        author: userId,
-      })
-      .then((res) => console.log(res));
+    axios.post("http://localhost:5000/post/", {
+      message,
+      author: userId,
+    });
+    setMessage("");
   };
 
   return (
@@ -25,7 +24,9 @@ const NewPost = ({ userId }) => {
         <textarea
           placeholder="Quoi de neuf ?"
           onChange={(e) => setMessage(e.target.value)}
+          value={message}
         ></textarea>
+
         <input type="submit" value="Envoyer" />
       </form>
     </div>

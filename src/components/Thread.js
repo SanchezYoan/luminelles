@@ -1,11 +1,19 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import Post from "./Post";
 
-const Thread = () => {
+const Thread = ({ userId }) => {
+  const [posts, setPosts] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/post/").then((res) => console.log(res));
+    axios.get("http://localhost:5000/post/").then((res) => setPosts(res.data));
   }, []);
-  return <div className="thread-container">{}</div>;
+  return (
+    <div className="thread-container">
+      {posts.map((post) => (
+        <Post key={post._id} post={post} userId={userId} />
+      ))}
+    </div>
+  );
 };
 
 export default Thread;

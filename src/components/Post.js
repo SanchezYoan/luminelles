@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import LikePost from "./LikePost";
+import axios from "axios";
 
 const Post = ({ post, userId }) => {
-  const [isAuhtor, setIsAuthor] = useState(false);
+  const [isAuthor, setIsAuthor] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
+  const [newMessage, setNewMessage] = useState("");
   useEffect(() => {
     if (post.author === userId) {
       setIsAuthor(true);
@@ -10,6 +13,14 @@ const Post = ({ post, userId }) => {
       setIsAuthor(false);
     }
   }, [userId]);
+
+  const handleEdit = () => {
+    if (newMessage) {
+      axios.put("http://localhost:5000/post/" + post._id, {
+        message: newMessage,
+      });
+    }
+  };
 
   const dateFormater = (date) => {
     return new Date(date).toLocaleDateString("fr-FR", {
@@ -27,12 +38,37 @@ const Post = ({ post, userId }) => {
         <h3>{post.author}</h3>
         <p>posté le {dateFormater(post.createdAt)}</p>
       </div>
-      <p>{post.message}</p>
+      {isEdit ? (
+        <div className="edit-container">
+          <textarea
+            defaultValue={post.message}
+            onChange={(e) => setNewMessage(e.target.value)}
+          ></textarea>
+          <button
+            onClick={() => {
+              setIsEdit(false);
+              handleEdit();
+            }}
+          >
+            Valider édition
+          </button>
+        </div>
+      ) : (
+        <p>{newMessage ? newMessage : post.message}</p>
+      )}
       <div className="icons-part">
         <LikePost post={post} userId={userId} />
-        {isAuhtor && (
+        {isAuthor && (
           <div className="update-delete-icons">
-            <span id="update-btn">&#10000;</span>
+            <span
+              id="update-btn"
+              onClick={() => {
+                setIsEdit(!isEdit);
+                handleEdit();
+              }}
+            >
+              &#10000;
+            </span>
           </div>
         )}
       </div>

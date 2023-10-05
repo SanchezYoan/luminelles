@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createPost, getPostsSuccess } from "../feature/post.slice";
+import { createPost, getPosts } from "../feature/post.slice";
 
 const NewPost = () => {
   const [message, setMessage] = useState("");
@@ -16,7 +16,7 @@ const NewPost = () => {
 
     dispatch(createPost(data));
     // getPost for get Id created by MongoDB
-    dispatch(getPostsSuccess());
+    dispatch(getPosts());
     setMessage("");
   };
 

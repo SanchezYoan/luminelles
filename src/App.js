@@ -4,8 +4,16 @@ import WeekEnd from "./pages/WeekEnd";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Day from "./pages/Day";
+// import { useEffect, useState } from "react";
+// import { useDispatch } from "react-redux";
+// import { getUser } from "./feature/user.slice";
 
 const App = () => {
+  // const [userId, setUserId] = useState("");
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {}, [userId]);
+  // dispatch(getUser(userId));
   return (
     <BrowserRouter>
       <Routes>

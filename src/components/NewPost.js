@@ -1,16 +1,22 @@
-import axios from "axios";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createPost, getPostsSuccess } from "../feature/post.slice";
 
-const NewPost = ({ userId }) => {
+const NewPost = () => {
   const [message, setMessage] = useState("");
+  const userId = useSelector((state) => state.user.userId);
+  const dispatch = useDispatch();
 
   const handleForm = (e) => {
-    e.preventDefault();
-
-    axios.post("http://localhost:5000/post/", {
+    const data = {
       message,
       author: userId,
-    });
+    };
+    e.preventDefault();
+
+    dispatch(createPost(data));
+    // getPost for get Id created by MongoDB
+    dispatch(getPostsSuccess());
     setMessage("");
   };
 

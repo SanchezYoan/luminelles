@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import LikePost from "./LikePost";
 import axios from "axios";
 import DeletePost from "./DeletePost";
+import { useSelector } from "react-redux";
 
-const Post = ({ post, userId }) => {
+const Post = ({ post }) => {
   const [isAuthor, setIsAuthor] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [newMessage, setNewMessage] = useState("");
+  const userId = useSelector((state) => state.user.userId);
+
   useEffect(() => {
     if (post.author === userId) {
       setIsAuthor(true);
@@ -58,7 +61,7 @@ const Post = ({ post, userId }) => {
         <p>{newMessage ? newMessage : post.message}</p>
       )}
       <div className="icons-part">
-        <LikePost post={post} userId={userId} />
+        <LikePost post={post} />
         {isAuthor && (
           <div className="update-delete-icons">
             <span

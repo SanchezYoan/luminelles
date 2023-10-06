@@ -1,23 +1,23 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const getPosts = createAsyncThunk("getPosts", async (_, thrunkAPI) => {
+export const getPosts = createAsyncThunk("getPosts", async (_, thunkAPI) => {
   axios
     .get("http://localhost:5000/post/")
-    .then((res) => thrunkAPI.dispatch(getPostsSuccess(res.data)));
+    .then((res) => thunkAPI.dispatch(getPostsSuccess(res.data)));
 });
 
 export const postSlice = createSlice({
   name: "posts",
   initialState: {
-    postData: [],
+    postsData: [],
   },
   reducers: {
     getPostsSuccess: (state, { payload }) => {
       state.postsData = payload;
     },
     createPost: (state, { payload }) => {
-      state.postData.push(payload);
+      state.postsData.push(payload);
     },
     editPost: (state, { payload }) => {
       state.postsData = state.postsData.map((post) => {
@@ -31,8 +31,12 @@ export const postSlice = createSlice({
         }
       });
     },
+    deletePost: (state, { payload }) => {
+      state.postsData = state.postsData.filter((post) => post._id !== payload);
+    },
   },
 });
 
-export const { getPostsSuccess, createPost, editPost } = postSlice.actions;
+export const { getPostsSuccess, createPost, editPost, deletePost } =
+  postSlice.actions;
 export default postSlice.reducer;

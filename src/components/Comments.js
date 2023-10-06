@@ -10,9 +10,9 @@ const Comments = () => {
   const [userId, setUserId] = useState("");
   const dispatch = useDispatch();
 
-  useEffect(() => {}, [userId]);
-  dispatch(getUser(userId));
-
+  useEffect(() => {
+    dispatch(getUser(userId));
+  }, [userId]);
   return (
     <div className="comments-container">
       <div className="login">

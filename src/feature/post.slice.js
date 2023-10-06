@@ -17,7 +17,7 @@ export const postSlice = createSlice({
       state.postsData = payload;
     },
     createPost: (state, { payload }) => {
-      state.postData.push(payload);
+      state.postsData.push(payload);
     },
     editPost: (state, { payload }) => {
       state.postsData = state.postsData.map((post) => {

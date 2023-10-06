@@ -19,8 +19,20 @@ export const postSlice = createSlice({
     createPost: (state, { payload }) => {
       state.postData.push(payload);
     },
+    editPost: (state, { payload }) => {
+      state.postsData = state.postsData.map((post) => {
+        if (post._id === payload[1]) {
+          return {
+            ...post,
+            message: payload[0],
+          };
+        } else {
+          return post;
+        }
+      });
+    },
   },
 });
 
-export const { getPostsSuccess, createPost } = postSlice.actions;
+export const { getPostsSuccess, createPost, editPost } = postSlice.actions;
 export default postSlice.reducer;

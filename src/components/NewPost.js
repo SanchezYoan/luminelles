@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { createPost, getPosts } from "../feature/post.slice";
-import axios from "axios";
 
 const NewPost = () => {
   const [message, setMessage] = useState("");

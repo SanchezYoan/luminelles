@@ -4,6 +4,7 @@ import WeekEnd from "./pages/WeekEnd";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Day from "./pages/Day";
+import Comments from "./pages/Comments";
 // import { useEffect, useState } from "react";
 // import { useDispatch } from "react-redux";
 // import { getUser } from "./feature/user.slice";
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/weekend" element={<WeekEnd />}></Route>
         <Route path="/day" element={<Day />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
+        <Route path="/comments" element={<Comments />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
       </Routes>
     </BrowserRouter>

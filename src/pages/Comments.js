@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import NewPost from "./NewPost";
-import Thread from "./Thread";
+import NewPost from "../components/NewPost";
+import Thread from "../components/Thread";
 
 import { useDispatch } from "react-redux";
 import { getUser } from "../feature/user.slice";
@@ -10,9 +10,9 @@ const Comments = () => {
   const [userId, setUserId] = useState("");
   const dispatch = useDispatch();
 
-  useEffect(() => {}, [userId]);
-  dispatch(getUser(userId));
-
+  useEffect(() => {
+    dispatch(getUser(userId));
+  }, [userId]);
   return (
     <div className="comments-container">
       <div className="login">

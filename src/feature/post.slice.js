@@ -1,23 +1,23 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const getPosts = createAsyncThunk("getPosts", async (_, thrunkAPI) => {
+export const getPosts = createAsyncThunk("getPosts", async (_, thunkAPI) => {
   axios
     .get("http://localhost:5000/post/")
-    .then((res) => thrunkAPI.dispatch(getPostsSuccess(res.data)));
+    .then((res) => thunkAPI.dispatch(getPostsSuccess(res.data)));
 });
 
 export const postSlice = createSlice({
   name: "posts",
   initialState: {
-    postData: [],
+    postsData: [],
   },
   reducers: {
     getPostsSuccess: (state, { payload }) => {
       state.postsData = payload;
     },
     createPost: (state, { payload }) => {
-      state.postData.push(payload);
+      state.postsData.push(payload);
     },
     editPost: (state, { payload }) => {
       state.postsData = state.postsData.map((post) => {
@@ -31,8 +31,42 @@ export const postSlice = createSlice({
         }
       });
     },
+    deletePost: (state, { payload }) => {
+      state.postsData = state.postsData.filter((post) => post._id !== payload);
+    },
+    like: (state, { payload }) => {
+      state.postsData = state.postsData.map((post) => {
+        if (post._id === payload[1]) {
+          return {
+            ...post,
+            likers: [...post.likers, payload[0]],
+          };
+        } else {
+          return post;
+        }
+      });
+    },
+    dislike: (state, { payload }) => {
+      state.postsData = state.postsData.map((post) => {
+        if (post._id === payload[1]) {
+          return {
+            ...post,
+            likers: post.likers.filter((userId) => userId !== payload[0]),
+          };
+        } else {
+          return post;
+        }
+      });
+    },
   },
 });
 
-export const { getPostsSuccess, createPost, editPost } = postSlice.actions;
+export const {
+  getPostsSuccess,
+  createPost,
+  editPost,
+  deletePost,
+  like,
+  dislike,
+} = postSlice.actions;
 export default postSlice.reducer;

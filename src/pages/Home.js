@@ -2,7 +2,7 @@ import React from "react";
 import { HomeData } from "../data/homeData";
 import Navigation from "../components/Navigation";
 import SocialNetwork from "../components/SocialNetwork";
-import Comments from "../components/Comments";
+import Comments from "./Comments";
 
 const Home = () => {
   return (

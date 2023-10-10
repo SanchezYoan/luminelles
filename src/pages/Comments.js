@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import NewPost from "./NewPost";
-import Thread from "./Thread";
+import NewPost from "../components/NewPost";
+import Thread from "../components/Thread";
 
 import { useDispatch } from "react-redux";
 import { getUser } from "../feature/user.slice";

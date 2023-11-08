@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import { UserContext } from "../context/userContext";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -22,7 +21,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-light bg-light px-4 justify-content-end">
+    <nav className="navbar navbar-light px-4 justify-content-end">
       <div>
         <button
           onClick={() => toggleModals("signUp")}

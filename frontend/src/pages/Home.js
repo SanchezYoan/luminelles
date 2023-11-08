@@ -1,13 +1,11 @@
 import React from "react";
 import { HomeData } from "../data/homeData";
 import Navigation from "../components/Navigation";
-import NavConnexion from "../components/NavConnexion";
 
 const Home = () => {
   return (
     <div className="home">
       <Navigation />
-
       <div className="logo-luminelles">
         <img
           className="logo"

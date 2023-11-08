@@ -40,6 +40,7 @@ body {
                 transition: transform 1s ease; /* Transition pour l'effet de zoom */
                 animation: logolum 4s forwards;
                 margin-bottom: 60px;
+                z-index: -1;
                 
             }
             
@@ -69,6 +70,8 @@ body {
                 img {
                     width: 200px;
                     border-radius: 100%;
+                    background: url("../../../public/assets/img/profil.png");
+                    z-index: -1;
                 }
             }
             

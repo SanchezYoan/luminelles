@@ -1,13 +1,13 @@
 import React from "react";
 import { HomeData } from "../data/homeData";
 import Navigation from "../components/Navigation";
-import SocialNetwork from "../components/SocialNetwork";
+import NavConnexion from "../components/NavConnexion";
 
 const Home = () => {
   return (
     <div className="home">
       <Navigation />
-      <SocialNetwork />
+
       <div className="logo-luminelles">
         <img
           className="logo"
@@ -28,7 +28,7 @@ const Home = () => {
         </div>
         <div className="img-intro">
           <div className="profil">
-            <img src="./assets/img/profil.png" alt="" />
+            {/* <img src="./assets/img/profil.png" alt="" /> */}
           </div>
         </div>
       </div>

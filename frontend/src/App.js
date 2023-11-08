@@ -5,9 +5,11 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Day from "./pages/Day";
 import Comments from "./pages/Comments";
-// import { useEffect, useState } from "react";
-// import { useDispatch } from "react-redux";
-// import { getUser } from "./feature/user.slice";
+import SignUpModal from "./components/SignUpModal";
+import Private from "./pages/Private/Private";
+import PrivateProfil from "./pages/Private/PrivateProfil/PrivateProfil";
+import SignInModal from "./components/SignInModal";
+import NavConnexion from "./components/NavConnexion";
 
 const App = () => {
   // const [userId, setUserId] = useState("");
@@ -17,6 +19,9 @@ const App = () => {
   // dispatch(getUser(userId));
   return (
     <BrowserRouter>
+      <NavConnexion />
+      <SignUpModal />
+      <SignInModal />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/weekend" element={<WeekEnd />}></Route>
@@ -24,6 +29,9 @@ const App = () => {
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/comments" element={<Comments />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
+        <Route path="/private" element={<Private />}>
+          <Route path="/private/private-home" element={<PrivateProfil />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

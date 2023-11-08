@@ -18,7 +18,7 @@ const Post = ({ post }) => {
     } else {
       setIsAuthor(false);
     }
-  }, [userId]);
+  }, [userId, post.author]);
 
   const handleEdit = () => {
     if (newMessage) {

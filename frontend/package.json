@@ -9,9 +9,12 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.5.0",
-    "cors": "^2.8.5",
+    "bootstrap": "^5.3.2",
     "dotenv": "^16.3.1",
-    "express": "^4.18.2",
+    "firebase": "^10.5.2",
+    "firebase-auth": "^0.1.2",
+    "firebase-config": "^1.0.0",
+    "mongoose": "^7.5.1",
     "nodemon": "^3.0.1",
     "react": "^18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
@@ -24,8 +27,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "server": "nodemon ./backend/server.js"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -44,5 +46,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.0"
   }
 }

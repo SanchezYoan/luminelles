@@ -12,6 +12,7 @@ const Comments = () => {
 
   useEffect(() => {
     dispatch(getUser(userId));
+    // error missing dispatch
   }, [userId]);
   return (
     <div className="comments-container">

@@ -9,7 +9,7 @@ const Thread = () => {
 
   useEffect(() => {
     dispatch(getPosts());
-  });
+  }, [dispatch]);
 
   return (
     <div className="thread-container">

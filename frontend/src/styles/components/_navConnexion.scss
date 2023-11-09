@@ -1,8 +1,9 @@
 .navbar {
     transform: translateY(-50px);
+    padding-bottom: 25px;
 
     &:hover {
-        animation: navHover 3s forwards
+        animation: navHover 3s forwards;
     }
     @keyframes navHover {
         30% {

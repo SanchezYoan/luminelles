@@ -1,5 +1,5 @@
 import React from "react";
-import Navigation from "../components/Navigation";
+import Navbar from "../components/Navbar";
 import ContactForm from "../components/ContactForm";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import SocialNetwork from "../components/SocialNetwork";
@@ -8,8 +8,6 @@ const Contact = () => {
   return (
     <main>
       <div className="contact">
-        <Navigation />
-        {/* <Logo /> */}
         <ContactForm />
         <div className="contact-infos">
           <div className="adress">

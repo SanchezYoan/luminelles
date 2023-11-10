@@ -4,7 +4,7 @@ import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase-config";
 
-const Navbar = () => {
+const NavConnexion = () => {
   const { toggleModals } = useContext(UserContext);
 
   const navigate = useNavigate();
@@ -48,4 +48,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavConnexion;

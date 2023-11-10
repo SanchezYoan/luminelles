@@ -5,12 +5,15 @@ import "./styles/index.scss";
 import { Provider } from "react-redux";
 import store from "./app/store";
 import { UserContextProvider } from "./context/userContext";
+import { PseudoProvider } from "./context/pseudoContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <UserContextProvider>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <PseudoProvider>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </PseudoProvider>
   </UserContextProvider>
 );

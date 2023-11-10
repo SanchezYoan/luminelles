@@ -1,11 +1,11 @@
 import React from "react";
 import { HomeData } from "../data/homeData";
-import Navigation from "../components/Navigation";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   return (
     <div className="home">
-      <Navigation />
+      {/* <Navbar /> */}
       <div className="logo-luminelles">
         <img
           className="logo"

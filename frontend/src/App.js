@@ -10,6 +10,7 @@ import Private from "./pages/Private/Private";
 import PrivateProfil from "./pages/Private/PrivateProfil/PrivateProfil";
 import SignInModal from "./components/SignInModal";
 import NavConnexion from "./components/NavConnexion";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   // const [userId, setUserId] = useState("");
@@ -19,6 +20,7 @@ const App = () => {
   // dispatch(getUser(userId));
   return (
     <BrowserRouter>
+      <Navbar />
       <NavConnexion />
       <SignUpModal />
       <SignInModal />

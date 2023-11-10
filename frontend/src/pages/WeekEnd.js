@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navigation from "../components/Navigation";
+import Navbar from "../components/Navbar";
 import { SeeMoreData } from "../data/seeMoreData";
 
 const WeekEnd = () => {
@@ -26,7 +26,7 @@ const WeekEnd = () => {
 
   return (
     <div className="seeMore">
-      <Navigation />
+      {/* <Navbar /> */}
       <h1>Week-end Bien-être</h1>
       {/* <h3>Quelques infos sur le week-end</h3> */}
       <div className="weekend-container">

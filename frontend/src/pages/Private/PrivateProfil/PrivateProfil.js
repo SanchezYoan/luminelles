@@ -1,11 +1,15 @@
 import React from "react";
-// import success from "./success.webp";
+import { usePseudo } from "../../../context/pseudoContext";
+import PseudoForm from "./PseudoForm";
+import Navbar from "../../../components/Navbar";
 
 export default function PrivateProfil() {
+  const { pseudo } = usePseudo();
   return (
-    <div className="container p-5">
-      <h1 className="display-3 text-black mb-4">Sweet Private Profil</h1>
-      {/* <img src={success} alt="cat" /> */}
+    <div>
+      {/* <Navbar /> */}
+      <h1>Bonjour {pseudo}</h1>
+      <PseudoForm />
     </div>
   );
 }

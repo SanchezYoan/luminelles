@@ -1,28 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import NewPost from "../components/NewPost";
 import Thread from "../components/Thread";
 
 import { useDispatch } from "react-redux";
 import { getUser } from "../feature/user.slice";
+import { usePseudo } from "../context/pseudoContext";
 
 const Comments = () => {
-  // A modifier après mise en place auth
-  const [userId, setUserId] = useState("");
+  const { pseudo } = usePseudo();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getUser(userId));
+    dispatch(getUser(pseudo));
     // error missing dispatch
-  }, [userId]);
+  }, [pseudo]);
   return (
     <div className="comments-container">
       <div className="login">
-        <h3>Bonjour</h3>
-        <input
-          type="text"
-          placeholder="Pseudo"
-          onChange={(e) => setUserId(e.target.value)}
-        />
+        <h3>{pseudo}</h3>
       </div>
       <NewPost />
       <Thread />

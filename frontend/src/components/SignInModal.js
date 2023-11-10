@@ -56,28 +56,27 @@ export default function SignInModal() {
             style={{ minWidth: "400px", marginTop: "100px" }}
           >
             <div className="modal-dialog bg-white">
-              <div className="modal-content" style={{ padding: "10px" }}>
-                <div className="modal-header bg-danger d-flex ">
-                  <h5
-                    className="modal-title mb-3  "
-                    style={{ textAlign: "center" }}
-                  >
-                    Connexion
-                  </h5>
-                  <button
-                    onClick={() => toggleModals("close")}
-                    className="btn-close"
-                  ></button>
+              <div className="modal-content">
+                <div className="header-connexion">
+                  <div className="modal-button">
+                    <button
+                      onClick={() => toggleModals("close")}
+                      className="btn-close"
+                    ></button>
+                  </div>
+                  <div className="modal-header">
+                    <h5 className="modal-title mb-3">Connexion</h5>
+                  </div>
                 </div>
                 <div className="modal-body">
                   <form
-                    className="sign-in-from"
+                    className="sign-in-form"
                     onSubmit={handleForm}
                     ref={formRef}
                   >
                     <div className="mb-3">
                       <label className="form-label" htmlFor="signInEmail">
-                        Email Adress
+                        Adresse Email
                       </label>
                       <input
                         ref={addInputs}
@@ -91,7 +90,7 @@ export default function SignInModal() {
 
                     <div className="mb-3">
                       <label className="form-label" htmlFor="SignInPwd">
-                        Password
+                        Mot de passe
                       </label>
                       <input
                         ref={addInputs}

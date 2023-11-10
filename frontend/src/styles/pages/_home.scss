@@ -6,7 +6,10 @@ body {
         width: 100vw;
 
         .logo-luminelles {
+            display: flex;
+            justify-content: center;
             text-align: center;
+            z-index: -2;
             
             @keyframes logolum {
                 0% {

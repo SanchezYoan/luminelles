@@ -1,10 +1,18 @@
 import { usePseudo } from "../../../context/pseudoContext";
+import { useDispatch } from "react-redux";
+import { getProfil } from "../../../feature/profil.slice";
+import axios from "axios";
 
 const PseudoForm = () => {
   const { pseudo, updatePseudo } = usePseudo();
+  const dispatch = useDispatch();
 
   const handlePseudoChange = (event) => {
     updatePseudo(event.target.value);
+    axios
+      .put("http://localhost:5000/")
+      .then(() => dispatch(getProfil(event.target.value)));
+    console.log("pseudo ajouté");
   };
 
   const handleSubmit = (event) => {

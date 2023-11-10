@@ -1,11 +1,9 @@
 import React from "react";
 import { HomeData } from "../data/homeData";
-import Navbar from "../components/Navbar";
 
 const Home = () => {
   return (
     <div className="home">
-      {/* <Navbar /> */}
       <div className="logo-luminelles">
         <img
           className="logo"

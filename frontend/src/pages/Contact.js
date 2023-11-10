@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import ContactForm from "../components/ContactForm";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import SocialNetwork from "../components/SocialNetwork";

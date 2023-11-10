@@ -13,11 +13,6 @@ import NavConnexion from "./components/NavConnexion";
 import Navbar from "./components/Navbar";
 
 const App = () => {
-  // const [userId, setUserId] = useState("");
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {}, [userId]);
-  // dispatch(getUser(userId));
   return (
     <BrowserRouter>
       <Navbar />

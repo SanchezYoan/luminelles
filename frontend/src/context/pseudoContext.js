@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState } from "react";
 const PseudoContext = createContext();
 
 export const PseudoProvider = ({ children }) => {
-  const [pseudo, setPseudo] = useState("Utilisatrice Anonyme");
+  const [pseudo, setPseudo] = useState("");
 
   const updatePseudo = (newPseudo) => {
     setPseudo(newPseudo);

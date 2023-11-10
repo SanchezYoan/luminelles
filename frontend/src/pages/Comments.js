@@ -9,15 +9,15 @@ import { usePseudo } from "../context/pseudoContext";
 const Comments = () => {
   const { pseudo } = usePseudo();
   const dispatch = useDispatch();
+  const random = Math.floor(Math.random() * 12345);
 
   useEffect(() => {
     dispatch(getUser(pseudo));
-    // error missing dispatch
-  }, [pseudo]);
+  }, []);
   return (
     <div className="comments-container">
       <div className="login">
-        <h3>{pseudo}</h3>
+        <h3>{pseudo !== "" ? pseudo : `Anonym ${random}`}</h3>
       </div>
       <NewPost />
       <Thread />

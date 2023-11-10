@@ -9,15 +9,20 @@ export default function SignInModal() {
 
   const navigate = useNavigate();
 
+  const formRef = useRef();
   const inputs = useRef([]);
+
+  // console.log(document.getElementById(btnClose));
+
+  // btn.addEventListener("mouseleave", () => {
+  //   btn.style.transform = "scale(0.8)";
+  // });
 
   const addInputs = (el) => {
     if (el && !inputs.current.includes(el)) {
       inputs.current.push(el);
     }
   };
-
-  const formRef = useRef();
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -45,11 +50,11 @@ export default function SignInModal() {
         <div className="position-fixed top-0 vw-100 vh-100">
           <div
             className="w-100 h-100 bg-dark bg-opacity-75 "
-            onClick={() => {
-              closeModal();
-            }}
+            // onClick={() => {
+            //   closeModal();
+            // }}
           >
-            {" "}
+            {/* {" "} */}
           </div>
           <div
             className="position-absolute top-50 start-50 translate-middle"
@@ -59,10 +64,13 @@ export default function SignInModal() {
               <div className="modal-content">
                 <div className="header-connexion">
                   <div className="modal-button">
-                    <button
-                      onClick={() => toggleModals("close")}
-                      className="btn-close"
-                    ></button>
+                    <div
+                      className="btn-c"
+                      id="btnCLose"
+                      onClick={() => closeModal()}
+                    >
+                      <i class="fa-solid fa-circle-xmark"></i>
+                    </div>
                   </div>
                   <div className="modal-header">
                     <h5 className="modal-title mb-3">Connexion</h5>

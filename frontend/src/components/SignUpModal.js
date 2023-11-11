@@ -75,16 +75,23 @@ export default function SignUpModal() {
           >
             <div className="modal-dialog bg-white">
               <div className="modal-content" style={{ padding: "10px" }}>
-                <div className="modal-header ">
-                  <h5 className="modal-title mb-3 ">Inscription</h5>
-                  <button
-                    onClick={() => toggleModals("close")}
-                    className="btn-close"
-                  ></button>
+                <div className="header-connexion">
+                  <div className="modal-button">
+                    <div
+                      className="btn-c"
+                      id="btnCLose"
+                      onClick={() => closeModal()}
+                    >
+                      <i class="fa-solid fa-circle-xmark"></i>
+                    </div>
+                  </div>
+                  <div className="modal-header">
+                    <h5 className="modal-title mb-3">Inscription</h5>
+                  </div>
                 </div>
                 <div className="modal-body">
                   <form
-                    className="sign-up-from"
+                    className="sign-in-form"
                     onSubmit={handleForm}
                     ref={formRef}
                   >

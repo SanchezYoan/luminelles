@@ -10,6 +10,16 @@
     font-family: "font-3";
     src: url(../assets/fonts/Satisfy-Regular.ttf);
   }
+
+  @keyframes signAnime {
+    100% { transform: translatey(-200px)}
+  }
+  @keyframes btnAnime {
+    100% {
+           transform: scale(1.2);
+           opacity: 0.8;
+    }
+  }
   
   $font-1: "font-1", sans-serif;
   $font-2: "font-2", serif;

@@ -1,22 +1,25 @@
-import { usePseudo } from "../../../context/pseudoContext";
-import { useDispatch } from "react-redux";
+// import { usePseudo } from "../../../context/pseudoContext";
+import { useDispatch, useSelector } from "react-redux";
 import { getProfil } from "../../../feature/profil.slice";
 import axios from "axios";
 
 const PseudoForm = () => {
-  const { pseudo, updatePseudo } = usePseudo();
+  // const { pseudo, updatePseudo } = usePseudo();
+  const pseudo = useSelector((state) => state.profilSlice.pseudo);
   const dispatch = useDispatch();
 
   const handlePseudoChange = (event) => {
-    updatePseudo(event.target.value);
-    axios
-      .put("http://localhost:5000/")
-      .then(() => dispatch(getProfil(event.target.value)));
+    const nouveauPseudo = event.target.value;
+    // updatePseudo(event.target.value);
+    //
     console.log("pseudo ajouté");
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    axios
+      .post("http://localhost:5000/private/private-home", { pseudo })
+      .then(() => dispatch(getProfil(pseudo)));
     console.log(`Pseudo soumis : ${pseudo}`);
   };
 

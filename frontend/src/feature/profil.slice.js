@@ -3,14 +3,14 @@ import { createSlice } from "@reduxjs/toolkit";
 export const profilSlice = createSlice({
   name: "profil",
   initialState: {
-    pseudo: null,
+    pseudo: "",
   },
   reducers: {
-    getProfil: (state, { payload }) => {
+    setProfil: (state, { payload }) => {
       state.pseudo = payload;
     },
   },
 });
 
-export const { getProfil } = profilSlice.actions;
+export const { setProfil } = profilSlice.actions;
 export default profilSlice.reducer;

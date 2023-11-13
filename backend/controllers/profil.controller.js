@@ -1,8 +1,19 @@
 const profilModel = require("../models/profilInfo.model");
 
-const getProfil = async (req, res) => {
-  const profil = await profilModel.find();
-  res.status(200).json(profil);
+const setProfil = async (req, res) => {
+  const profil = await PostModel.create({
+    pseudo: req.body.pseudo,
+  });
+  if (!req.body.profil) {
+    res.status(400).json({ profil: "Merci d'ajouter un profil" });
+  } else {
+    try {
+      res.status(200).json(profil);
+      // res.json({ profil: "It's good" });
+    } catch (error) {
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  }
 };
 
-module.exports = { getProfil };
+module.exports = { setProfil };

@@ -1,26 +1,19 @@
-// import { usePseudo } from "../../../context/pseudoContext";
-import { useDispatch, useSelector } from "react-redux";
-import { getProfil } from "../../../feature/profil.slice";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { usePseudo } from "../../../context/pseudoContext";
+import { setProfil } from "../../../feature/profil.slice";
 
 const PseudoForm = () => {
-  // const { pseudo, updatePseudo } = usePseudo();
-  const pseudo = useSelector((state) => state.profilSlice.pseudo);
+  const { pseudo, updatePseudo } = usePseudo();
   const dispatch = useDispatch();
 
   const handlePseudoChange = (event) => {
-    const nouveauPseudo = event.target.value;
-    // updatePseudo(event.target.value);
-    //
-    console.log("pseudo ajouté");
+    updatePseudo(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios
-      .post("http://localhost:5000/private/private-home", { pseudo })
-      .then(() => dispatch(getProfil(pseudo)));
     console.log(`Pseudo soumis : ${pseudo}`);
+    dispatch(setProfil(pseudo));
   };
 
   return (
@@ -29,7 +22,7 @@ const PseudoForm = () => {
         Pseudo:
         <input type="text" value={pseudo} onChange={handlePseudoChange} />
       </label>
-      <button type="submit">Soumettre</button>
+      <button type="submit">Valider</button>
     </form>
   );
 };

@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { usePseudo } from "../../../context/pseudoContext";
 import { setProfil } from "../../../feature/profil.slice";
+// import axios from "axios";
 
 const PseudoForm = () => {
   const { pseudo, updatePseudo } = usePseudo();
@@ -10,9 +11,14 @@ const PseudoForm = () => {
     updatePseudo(event.target.value);
   };
 
+  // const data = {
+  //   pseudo,
+  // };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(`Pseudo soumis : ${pseudo}`);
+    // axios.post("http://localhost:5000/profil", data);
     dispatch(setProfil(pseudo));
   };
 

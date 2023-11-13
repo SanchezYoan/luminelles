@@ -1,11 +1,11 @@
 const profilModel = require("../models/profilInfo.model");
 
 const setProfil = async (req, res) => {
-  const profil = await PostModel.create({
+  const profil = await profilModel.create({
     pseudo: req.body.pseudo,
   });
-  if (!req.body.profil) {
-    res.status(400).json({ profil: "Merci d'ajouter un profil" });
+  if (!req.body.pseudo) {
+    res.status(400).json({ pseudo: "Merci d'ajouter un profil" });
   } else {
     try {
       res.status(200).json(profil);

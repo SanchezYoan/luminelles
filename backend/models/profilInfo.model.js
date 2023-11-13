@@ -1,22 +1,10 @@
 const mongoose = require("mongoose");
 
-const profilSchema = mongoose.Schema(
-  {
-    pseudo: {
-      type: String,
-      require: true,
-    },
-    email: {
-      type: String,
-      require: true,
-    },
-    // pwd: {
-    //   type: [String],
-    // },
+const profilSchema = mongoose.Schema({
+  pseudo: {
+    type: String,
+    require: true,
   },
-  {
-    timestamps: true,
-  }
-);
+});
 
 module.exports = mongoose.model("profil", profilSchema);

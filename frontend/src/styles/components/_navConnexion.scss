@@ -1,6 +1,10 @@
 .navbar {
     transform: translateY(-50px);
     padding-bottom: 25px;
+    display: flex;
+    position: absolute;
+    top: 0px;
+    right: 0;
 
     &:hover {
         animation: navHover 3s forwards;

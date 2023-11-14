@@ -63,11 +63,7 @@ export default function SignInModal() {
                       id="btnCLose"
                       onClick={() => closeModal()}
                     >
-
                       <i className="fa-solid fa-circle-xmark"></i>
-
-                      <i className="fa-solid fa-circle-xmark"></i>
-
                     </div>
                   </div>
                   <div className="modal-header">
@@ -108,7 +104,6 @@ export default function SignInModal() {
                       />
                     </div>
                     <div className="mb-3">
-                    
                       <p className="text-danger mt-1">{validation}</p>
                     </div>
 

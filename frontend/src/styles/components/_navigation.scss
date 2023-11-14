@@ -1,0 +1,103 @@
+.navigation {
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
+  font-size: 1.5rem;
+  line-height: 28px;
+  color: $color-4;
+  font-family: $font-3;
+
+  &:before {
+    content: '';
+    position: absolute;
+    height: 320px;
+    width: 320px;
+    border-radius: 50%;
+    background: $color-3;
+    top: -150px;
+    left: -160px;
+    z-index: -1;
+    animation: navAnim 20s infinite alternate;
+
+    @keyframes navAnim {
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    @media screen and (max-width: 430px){
+      height: 50px;
+      width: 50px;
+    }
+  }
+  .nav-active {
+    color: $black;
+  }
+  ul li {
+    margin: 5px;
+
+  }
+  ul:hover li:not(:hover) {
+    opacity: .5;
+  }
+  ul:hover li:hover {
+    color: $black;
+    transition: 0.5s;
+    transform: scale(1.1);
+  }
+
+  .nav-portfolio {
+    cursor: pointer;
+    display: flex;
+    // padding-right: 6rem;
+    transition: .5s;
+    
+    .nav-projects {
+      font-size: 1rem;
+    }
+
+    &:hover .nav-projects,
+    .nav-projects:hover {
+      
+      visibility: visible;
+      opacity: 1;
+      
+      
+      
+      li {
+        margin: 0 auto;
+        transform: rotatey(0deg);
+        background: yellow;
+        margin: 5px;
+      }
+    }
+
+    .nav-projects {
+      position: absolute;
+      visibility: hidden;
+      opacity: 0;
+      padding: 0 40px;
+      width: 300px;
+      transform: translateX(100px);
+      transition: .3s ;
+      perspective: 500px;
+
+      
+      li {
+        transform: rotatey(30deg) scaleX(1.2);
+        transform-origin: center;
+        transition: .3s;
+        width: 60%;
+        text-align: center;
+        // padding: px;
+        border-radius: 50px;
+        &:hover {
+          background: rgb(160, 160, 228);
+          transition: 1s;
+        }
+      }
+    }
+  }
+}

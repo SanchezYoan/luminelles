@@ -12,12 +12,6 @@ export default function SignInModal() {
   const formRef = useRef();
   const inputs = useRef([]);
 
-  // console.log(document.getElementById(btnClose));
-
-  // btn.addEventListener("mouseleave", () => {
-  //   btn.style.transform = "scale(0.8)";
-  // });
-
   const addInputs = (el) => {
     if (el && !inputs.current.includes(el)) {
       inputs.current.push(el);
@@ -69,7 +63,11 @@ export default function SignInModal() {
                       id="btnCLose"
                       onClick={() => closeModal()}
                     >
-                      <i class="fa-solid fa-circle-xmark"></i>
+
+                      <i className="fa-solid fa-circle-xmark"></i>
+
+                      <i className="fa-solid fa-circle-xmark"></i>
+
                     </div>
                   </div>
                   <div className="modal-header">
@@ -110,17 +108,7 @@ export default function SignInModal() {
                       />
                     </div>
                     <div className="mb-3">
-                      {/* <label className="form-label" htmlFor="repeatPwd">
-                        Repeat Password
-                      </label>
-                      <input
-                        ref={addInputs}
-                        name="pwd"
-                        required
-                        type="password"
-                        className="form-control"
-                        id="repeatPwd"
-                      /> */}
+                    
                       <p className="text-danger mt-1">{validation}</p>
                     </div>
 

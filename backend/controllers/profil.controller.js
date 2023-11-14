@@ -14,7 +14,6 @@ const setProfil = async (req, res) => {
   } else {
     try {
       res.status(200).json(profil);
-      // res.json({ profil: "It's good" });
     } catch (error) {
       res.status(500).json({ error: "Internal Server Error" });
     }

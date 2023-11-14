@@ -69,7 +69,7 @@ export default function SignInModal() {
                       id="btnCLose"
                       onClick={() => closeModal()}
                     >
-                      <i class="fa-solid fa-circle-xmark"></i>
+                      <i className="fa-solid fa-circle-xmark"></i>
                     </div>
                   </div>
                   <div className="modal-header">

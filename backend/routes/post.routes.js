@@ -8,9 +8,14 @@ const {
   likePost,
   dislikePost,
 } = require("../controllers/post.controller");
-const { setProfil } = require("../controllers/profil.controller");
+const { setProfil, getProfil } = require("../controllers/profil.controller");
 
-router.get("/private/private-home", setProfil);
+router.post("/profil", setProfil);
+// router.post("/profil", (req, res) => {
+//   res.json({ pseudo: req.body.pseudo });
+// });
+
+router.get("/profil", getProfil);
 
 router.get("/", getPosts);
 

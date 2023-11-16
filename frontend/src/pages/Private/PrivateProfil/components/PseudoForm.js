@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import { usePseudo } from "../../../context/pseudoContext";
-import { setProfil } from "../../../feature/profil.slice";
+import { usePseudo } from "../../../../context/pseudoContext";
+import { setProfil } from "../../../../feature/profil.slice";
 import axios from "axios";
 
 const PseudoForm = () => {

@@ -15,7 +15,6 @@ export const PseudoProvider = ({ children }) => {
     </PseudoContext.Provider>
   );
 };
-
 export const usePseudo = () => {
   const context = useContext(PseudoContext);
   if (!context) {

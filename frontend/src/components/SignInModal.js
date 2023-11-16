@@ -26,6 +26,7 @@ export default function SignInModal() {
       //   formRef.current.reset();
       setValidation("");
       toggleModals("close");
+      toggleModals("connected");
       navigate("/private/private-home");
     } catch (err) {
       console.dir(err);

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import LikePost from "./LikePost";
+import LikePost from "./Private/PrivateProfil/components/LikePost";
 import axios from "axios";
-import DeletePost from "./DeletePost";
+import DeletePost from "./Private/PrivateProfil/components/DeletePost";
 import { useDispatch, useSelector } from "react-redux";
 import { editPost } from "../feature/post.slice";
 

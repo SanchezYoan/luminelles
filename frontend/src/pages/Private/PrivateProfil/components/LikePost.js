@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { dislike, like } from "../feature/post.slice";
+import { dislike, like } from "../../../../feature/post.slice";
 
 const LikePost = ({ post, userId }) => {
   const [userLiked, setUserLiked] = useState(false);

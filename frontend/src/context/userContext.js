@@ -25,8 +25,7 @@ export function UserContextProvider(props) {
     createUserWithEmailAndPassword(auth, email, pwd)
       .then((userCredential) => {
         // Sign up
-        const user = userCredential.user;
-        console.log("SUCCESS" + user);
+        console.log("SUCCESS" + userCredential);
       })
       .catch((error) => {
         console.log("ERROR CODE: " + error.code);
@@ -37,9 +36,9 @@ export function UserContextProvider(props) {
   const signIn = (email, pwd) => {
     signInWithEmailAndPassword(auth, email, pwd)
       .then((userCredential) => {
-        // Sign up
-        const user = userCredential.user;
-        console.log("SUCCESS" + user);
+        // Sign in
+
+        console.log("SUCCESS" + userCredential);
       })
       .catch((error) => {
         console.log("ERROR CODE: " + error.code);
@@ -48,6 +47,7 @@ export function UserContextProvider(props) {
   };
 
   //modal
+  const [user, setUser] = useState({ name: "", isAuthentificated: false });
   const [modalState, setModalState] = useState({
     signUpModal: false,
     signInModal: false,
@@ -72,11 +72,21 @@ export function UserContextProvider(props) {
         signInModal: false,
       });
     }
+    if (modal === "connected") {
+      setUser({
+        isAuthentificated: true,
+      });
+    }
+    if (modal === "disconnected") {
+      setUser({
+        isAuthentificated: false,
+      });
+    }
   };
 
   return (
     <UserContext.Provider
-      value={{ modalState, toggleModals, signUp, signIn, currentUser }}
+      value={{ modalState, toggleModals, signUp, signIn, currentUser, user }}
     >
       {!loadingData && props.children}
     </UserContext.Provider>

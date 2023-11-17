@@ -24,15 +24,35 @@
     }
 
 
-    #nav-disconnected {
+    
         
        
-        .user {
-            background-color: red;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            font-size: 1.2rem;
+    .user {
+        display: flex;
+        text-align: center;
+        font-size: 1.2rem;
+        justify-content: space-between;
+        min-width: 200px;
+
+        button {
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 10px;
         }
+        
+        .user-icon {
+            color: wheat;
+            background-color: red;
+            padding: 10px;
+            border: none;
+            border-radius: 100px;
+        }
+
+        .nav-con {
+
+            display: none;
+            flex-direction: column;
+        }
+       
     }
 }

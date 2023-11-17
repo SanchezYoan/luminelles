@@ -25,7 +25,7 @@ const NavConnexion = () => {
   return (
     <nav className="navbar navbar-light px-4 justify-content-end">
       {!user.isAuthentificated ? (
-        <div id="nav-disconnected">
+        <div>
           <button
             onClick={() => toggleModals("signUp")}
             className="btn btn-primary"
@@ -40,21 +40,23 @@ const NavConnexion = () => {
           </button>
         </div>
       ) : (
-        <div id="nav-connected">
+        <div className="user">
           <button>EVENEMENTS</button>
-          <div className="user">
-            <span>
+          <div>
+            <div className="user-icon">
               <i className="fa-regular fa-user"></i>
-            </span>
-            <button onClick={() => navigate("/")}>Mon compte</button>
-            <button
-              onClick={() => {
-                logOut();
-                console.log(user);
-              }}
-            >
-              se déconnecter
-            </button>
+            </div>
+            <div className="nav-con">
+              <button onClick={() => navigate("/")}>Mon compte</button>
+              <button
+                onClick={() => {
+                  logOut();
+                  console.log(user);
+                }}
+              >
+                se déconnecter
+              </button>
+            </div>
           </div>
         </div>
       )}

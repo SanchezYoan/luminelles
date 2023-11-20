@@ -1,25 +1,154 @@
+
 .navbar {
-    transform: translateY(-50px);
-    padding-bottom: 25px;
+    transform: translateY(-70px);
     display: flex;
     position: absolute;
     top: 0px;
     right: 0;
+    opacity: 0;
 
+    &:before {
+        content: '';
+        position: absolute;
+        height: 320px;
+        width: 320px;
+        border-radius: 50%;
+        background: $color-3;
+        top: -150px;
+        // left: 160px;
+        z-index: -1;
+        animation: navAnim 20s infinite alternate;
+    
+        @keyframes navAnim {
+          50% {
+            transform: scale(1.2);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+        @media screen and (max-width: 430px){
+          height: 50px;
+          width: 50px;
+        }
+      }
+    
+    .btn {
+        font-size: 1.1rem;
+        margin: 20px;
+        background: $color-4;
+        color: white;
+        border: white;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    
+    
     &:hover {
-        animation: navHover 3s forwards;
+        animation: navHover 2s forwards;
     }
     @keyframes navHover {
-        30% {
-            transform:translateY(0px);
+        from {
+            opacity: 0.1;
+            transform: translateY(-90px);
         }
-        60% {
-
-            transform:translateY(0px);
-        }
-        90% {
-
-            transform:translateY(0px);
+        to {
+            opacity: 1;
+            transform: translateY(-10px);
         }
     }
+    
+    
+    
+    
+    
+    .user {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        font-size: 1.2rem;
+        min-width: 200px;
+        padding: 30px;
+        
+        
+        #envents {
+
+            border: 1px solid black;
+            border-radius: 5px;
+            margin-right: 20px;
+            padding: 5px;
+            cursor: pointer;
+            color: #000;
+            position: relative;
+            text-decoration: none;
+         
+            &:hover {
+                color: white;
+
+            }
+              
+            &:before {
+            background: hsl(219, 91%, 61%);
+            content: "";
+            inset: 0;
+            position: absolute;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s ease-in-out;
+            z-index: -1;
+        }
+        
+        &:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+            }
+        }
+        
+        #usericon {
+            color: wheat;
+            background-color: red;
+            width: 30px;
+            height: 30px;
+            border: none;
+            clip-path: circle(50% at 50% 50%);
+            cursor: pointer;
+
+        }
+
+        &:hover .nav-projects,
+        .nav-projects:hover {
+          
+          visibility: visible;
+          opacity: 1;
+          transform: translateX(-10px);
+          
+        }
+        
+        .nav-projects {
+            position: absolute;
+            visibility: hidden;
+            opacity: 0;
+            top: 100px;
+            transform: translateX(100px);
+            transition: .3s ;
+            text-align: end;
+            li {
+                margin-top: 10px;
+                font-size: 0.6;
+                border: none;
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: underline;
+                    // background: none;
+                }
+              }
+            
+        }
+        
+    }   
+
+
 }

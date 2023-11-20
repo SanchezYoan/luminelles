@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deletePost } from "../feature/post.slice";
+import { deletePost } from "../../../../feature/post.slice";
 
 const DeletePost = ({ postId }) => {
   const dispatch = useDispatch;

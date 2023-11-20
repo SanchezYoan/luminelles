@@ -53,7 +53,7 @@ const Contact = () => {
         <input type="email" name="email" required autoComplete="off" />
         <label>Message</label>
         <textarea name="message" id="mess" />
-        <input type="submit" value="Envoyer" className="hover button" />
+        <input type="submit" value="Envoyer" className="button" />
       </form>
       <div className="form-message"></div>
     </div>

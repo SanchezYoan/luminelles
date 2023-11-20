@@ -6,8 +6,8 @@ import { auth } from "../firebase-config";
 
 const NavConnexion = () => {
   const { toggleModals } = useContext(UserContext);
-  const { user } = useContext(UserContext);
   const [navAccount, setNavAccount] = useState(false);
+  const { currentUser } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ const NavConnexion = () => {
 
   return (
     <nav className="navbar">
-      {!user.isAuthentificated ? (
+      {!currentUser ? (
         <div>
           <button onClick={() => toggleModals("signUp")} className="btn">
             Inscription
@@ -40,7 +40,9 @@ const NavConnexion = () => {
         </div>
       ) : (
         <div className="user">
-          <a id="envents">Évènements</a>
+          <a id="envents" onClick={() => navigate("/private/comments")}>
+            Évènements
+          </a>
 
           <div id="usericon" onClick={toggleNavAccount}>
             <i className="fa-regular fa-user"></i>
@@ -62,7 +64,6 @@ const NavConnexion = () => {
                 }
                 onClick={() => {
                   logOut();
-                  console.log(user);
                 }}
               >
                 Se déconnecter

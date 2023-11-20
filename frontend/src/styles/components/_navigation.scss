@@ -6,6 +6,7 @@
   line-height: 28px;
   color: $color-4;
   font-family: $font-3;
+  z-index: 1;
 
   &:before {
     content: '';

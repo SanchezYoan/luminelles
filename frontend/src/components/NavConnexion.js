@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { UserContext } from "../context/userContext";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,7 @@ import { auth } from "../firebase-config";
 const NavConnexion = () => {
   const { toggleModals } = useContext(UserContext);
   const { user } = useContext(UserContext);
+  const [navAccount, setNavAccount] = useState(false);
 
   const navigate = useNavigate();
 
@@ -22,42 +23,52 @@ const NavConnexion = () => {
     }
   };
 
+  const toggleNavAccount = () => {
+    setNavAccount((prevNavAccount) => !prevNavAccount);
+  };
+
   return (
-    <nav className="navbar navbar-light px-4 justify-content-end">
+    <nav className="navbar">
       {!user.isAuthentificated ? (
         <div>
-          <button
-            onClick={() => toggleModals("signUp")}
-            className="btn btn-primary"
-          >
-            Sign Up
+          <button onClick={() => toggleModals("signUp")} className="btn">
+            Inscription
           </button>
-          <button
-            onClick={() => toggleModals("signIn")}
-            className="btn btn-primary ms-2"
-          >
-            Sign In
+          <button onClick={() => toggleModals("signIn")} className="btn">
+            Connexion
           </button>
         </div>
       ) : (
         <div className="user">
-          <button>EVENEMENTS</button>
-          <div>
-            <div className="user-icon">
-              <i className="fa-regular fa-user"></i>
-            </div>
-            <div className="nav-con">
-              <button onClick={() => navigate("/")}>Mon compte</button>
-              <button
+          <a id="envents">Évènements</a>
+
+          <div id="usericon" onClick={toggleNavAccount}>
+            <i className="fa-regular fa-user"></i>
+          </div>
+
+          {navAccount && (
+            <ul className="nav-projects">
+              <li
+                className={(nav) =>
+                  nav.isActive ? "nav-active hover" : "hover"
+                }
+                onClick={() => navigate("/")}
+              >
+                Mon compte
+              </li>
+              <li
+                className={(nav) =>
+                  nav.isActive ? "nav-active hover" : "hover"
+                }
                 onClick={() => {
                   logOut();
                   console.log(user);
                 }}
               >
-                se déconnecter
-              </button>
-            </div>
-          </div>
+                Se déconnecter
+              </li>
+            </ul>
+          )}
         </div>
       )}
     </nav>

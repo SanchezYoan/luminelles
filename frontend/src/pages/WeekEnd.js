@@ -4,11 +4,14 @@ import PostWeekend from "./Private/PrivateProfil/components/PostWeekend";
 
 const WeekEnd = () => {
   const { handleSubmit, control } = useForm();
-  const [activity, setActivity] = useState();
+  const [eventData, setEventData] = useState([]);
 
   // Fonction de gestion de la soumission du formulaire
   const onSubmit = async (data) => {
-    console.log("Données du formaulaire soumises: ", data);
+    console.log("Données du formulaire soumises: ", data);
+    // setEventData(data);
+    setEventData([...eventData, data]);
+    console.log(eventData);
   };
 
   return (
@@ -80,8 +83,6 @@ const WeekEnd = () => {
                   id="activity"
                   cols="10"
                   rows="10"
-                  onChange={(e) => setActivity(e.target.value)}
-                  value={activity}
                 ></textarea>
               )}
             />
@@ -102,9 +103,11 @@ const WeekEnd = () => {
             <button type="submit">Soumettre</button>
           </form>
         </div>
-        <div className="info-media">
-          <PostWeekend />
-        </div>
+      </div>
+      <div className="event">
+        {eventData.map((event) => (
+          <PostWeekend data={event} />
+        ))}
       </div>
       {/* <div className="consign">
         <p>{SeeMoreData[0].annulation}</p>

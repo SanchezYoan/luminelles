@@ -1,18 +1,19 @@
-body {
+.seeMore {
 
+    
     h1 {
         font-family: $font-2;
         font-size: 3rem;
         margin: 20px;
         text-align: center;
     }
-
+    
     .weekend-container {
         text-align: center;
         background: rgb(92, 127, 222);
         margin: 0 400px 0 400px;
         padding: 20px;
-        margin-bottom: 200px;
+        
         .weekend-content {
             label {
                 font-family: $font-1;
@@ -21,11 +22,26 @@ body {
             input {
                 margin: 15px;
             }
-
-        }
-
-        // .weekend-content {
             
-        // }
+        }
+        
+        
+    }
+
+    .event {
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        margin: 50px;
+        padding: 20px;
+
+        h2 {
+            font-family: $font-3;
+            text-decoration: underline;
+            margin-bottom: 20px;
+        }
+        p {
+            font-family: $font-3;
+        }
     }
 }

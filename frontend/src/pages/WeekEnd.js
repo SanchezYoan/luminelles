@@ -1,92 +1,110 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-// import { SeeMoreData } from "../../src/data/seeMoreData";
+import React, { useState } from "react";
+import { useForm, Controller } from "react-hook-form";
+import PostWeekend from "./Private/PrivateProfil/components/PostWeekend";
 
 const WeekEnd = () => {
-  const { register, handleSubmit, formState, errors } = useForm();
-  const { isSubmitting } = formState;
-
-  const wait = function (duration = 1000) {
-    return new Promise((resolve) => {
-      window.setTimeout(resolve, duration);
-    });
-  };
-
-  console.log(errors);
+  const { handleSubmit, control } = useForm();
+  const [activity, setActivity] = useState();
 
   // Fonction de gestion de la soumission du formulaire
   const onSubmit = async (data) => {
-    await wait(2000);
     console.log("Données du formaulaire soumises: ", data);
   };
 
   return (
     <div className="seeMore">
-      {/* <Navbar /> */}
       <h1>Week-end Bien-être</h1>
-      {/* <h3>Quelques infos sur le week-end</h3> */}
       <div className="weekend-container">
         <div className="weekend-content">
           <form onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="name">Thème</label>
             <h2>
-              <input {...register("thème", { required: true })} id="name" />
+              <Controller
+                name="name"
+                control={control}
+                defaultValue=""
+                render={({ field }) => <input {...field} id="name" />}
+              />
             </h2>
             <label htmlFor="date">Date</label>
             <h2>
-              <input
-                type="date"
-                {...register("date", { required: true })}
-                id="date"
+              <Controller
+                name="date"
+                control={control}
+                defaultValue=""
+                render={({ field }) => (
+                  <input {...field} type="date" id="date" />
+                )}
               />
             </h2>
             <label htmlFor="lieu">Lieu</label>
             <h2>
-              <input
-                type="text"
-                {...register("location", { required: true })}
+              <Controller
                 name="lieu"
+                control={control}
+                defaultValue=""
+                render={({ field }) => <input {...field} type="text" />}
               />
             </h2>
             <input type="file" id="fileInput" />
             {/* <button onClick="uploadImage()">Télécharger</button> */}
             <br />
             <label htmlFor="participante">Nombre de participante:</label>
-            <select name="howmuch" id="pet-select">
-              <option value="">--Combien sont-elles ?--</option>
-              <option value="4">4</option>
-              <option value="6">6</option>
-              <option value="8">8</option>
-              <option value="10">10</option>
-              <option value="12">12</option>
-              <option value="14">14</option>
-            </select>
+
+            <Controller
+              name="howMuch"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <select {...field} type="text">
+                  <option value="">--Combien sont-elles ?--</option>
+                  <option value="4">4</option>
+                  <option value="6">6</option>
+                  <option value="8">8</option>
+                  <option value="10">10</option>
+                  <option value="12">12</option>
+                  <option value="14">14</option>
+                </select>
+              )}
+            />
             <br />
             <label htmlFor="activity">Activités</label>
             <br />
-            <textarea
-              // {...register("activité", { required: true })}
+            <Controller
               name="activity"
-              id="activity"
-              cols="20"
-              rows="10"
-            ></textarea>
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <textarea
+                  {...field}
+                  id="activity"
+                  cols="10"
+                  rows="10"
+                  onChange={(e) => setActivity(e.target.value)}
+                  value={activity}
+                ></textarea>
+              )}
+            />
             <br />
             <label htmlFor="price">Tarif</label>
             <br />
-            <input
-              type="text"
-              // {...register("price", { required: true })}
+            <Controller
               name="price"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <input {...field} type="text" id="price" />
+              )}
             />
+
             <span>&#8364;</span>
             <br />
-            <button type="submit" disabled={isSubmitting}>
-              Soumettre
-            </button>
+            <button type="submit">Soumettre</button>
           </form>
         </div>
-        <div className="info-media"></div>
+        <div className="info-media">
+          <PostWeekend />
+        </div>
       </div>
       {/* <div className="consign">
         <p>{SeeMoreData[0].annulation}</p>

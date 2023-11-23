@@ -52,7 +52,7 @@ const WeekEnd = () => {
             <input type="file" id="fileInput" />
             {/* <button onClick="uploadImage()">Télécharger</button> */}
             <br />
-            <label htmlFor="participante">Nombre de participante:</label>
+            <label htmlFor="participante">Nombre de participante :</label>
 
             <Controller
               name="howMuch"
@@ -60,7 +60,7 @@ const WeekEnd = () => {
               defaultValue=""
               render={({ field }) => (
                 <select {...field} type="text">
-                  <option value="">--Combien sont-elles ?--</option>
+                  <option value="">-Combien sont-elles ?-</option>
                   <option value="4">4</option>
                   <option value="6">6</option>
                   <option value="8">8</option>
@@ -100,7 +100,9 @@ const WeekEnd = () => {
 
             <span>&#8364;</span>
             <br />
-            <button type="submit">Soumettre</button>
+            <button className="button" type="submit">
+              Publier
+            </button>
           </form>
         </div>
       </div>

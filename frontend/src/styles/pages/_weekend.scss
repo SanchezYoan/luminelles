@@ -1,27 +1,63 @@
 .seeMore {
 
-    
+    background: $bkg;
+
     h1 {
         font-family: $font-2;
         font-size: 3rem;
         margin: 20px;
         text-align: center;
+        color: $black;
     }
     
     .weekend-container {
         text-align: center;
-        background: rgb(92, 127, 222);
+        background: $orange;
         margin: 0 400px 0 400px;
         padding: 20px;
         
         .weekend-content {
+            background: $pink;
+            padding: 20px;
+
             label {
                 font-family: $font-1;
                 font-size: 1.5rem;
+                color: wheat;
             }
             input {
                 margin: 15px;
+                font-size: 0.8rem;
             }
+            textarea {
+                width: 200px;
+                height: 200px;
+                background: white;
+                color: black;
+            }
+            select {
+                margin-left: 20px;
+            }
+            .button {
+                
+                width: 200px;
+                height: 36px;
+                border-radius: 18px;
+                background-color: #1c89ff;
+                border: solid 1px transparent;
+                color: #fff;
+                font-size: 18px;
+                font-weight: 300;
+                cursor: pointer;
+                transition: all .1s ease-in-out;
+                &:hover {
+                  background-color: transparent;
+                  border-color: #fff;
+                  transition: all .1s ease-in-out;
+                }
+                
+            }
+                        
             
         }
         

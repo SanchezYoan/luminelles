@@ -1,17 +1,34 @@
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import PostWeekend from "./Private/PrivateProfil/components/PostWeekend";
+import axios from "axios";
 
 const WeekEnd = () => {
   const { handleSubmit, control } = useForm();
   const [eventData, setEventData] = useState([]);
+  const [imagePreview, setImagePreview] = useState(null);
 
   // Fonction de gestion de la soumission du formulaire
   const onSubmit = async (data) => {
     console.log("Données du formulaire soumises: ", data);
-    // setEventData(data);
-    setEventData([...eventData, data]);
-    console.log(eventData);
+
+    try {
+      const formData = new FormData();
+      formData.append("image", data.image[0]);
+
+      const response = await axios.post(
+        "http://localhost:5000/upload",
+        formData
+      );
+      console.log("Response from server:", response.data);
+
+      const imageUrl = response.data.imageUrl;
+
+      setEventData([...eventData, { ...data, imageUrl }]);
+      setImagePreview(null); // Clear image preview after submission
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    }
   };
 
   return (
@@ -46,11 +63,33 @@ const WeekEnd = () => {
                 name="lieu"
                 control={control}
                 defaultValue=""
-                render={({ field }) => <input {...field} type="text" />}
+                render={({ field }) => (
+                  <input {...field} type="text" id="lieu" />
+                )}
               />
             </h2>
-            <input type="file" id="fileInput" />
-            {/* <button onClick="uploadImage()">Télécharger</button> */}
+            <Controller
+              name="image"
+              control={control}
+              render={({ field }) => (
+                <>
+                  <input
+                    type="file"
+                    onChange={(e) => {
+                      field.onChange(e);
+                      setImagePreview(URL.createObjectURL(e.target.files[0]));
+                    }}
+                  />
+                  {imagePreview && (
+                    <img
+                      src={imagePreview}
+                      alt="Aperçu de l'image"
+                      style={{ maxWidth: "100%", maxHeight: "200px" }}
+                    />
+                  )}
+                </>
+              )}
+            />
             <br />
             <label htmlFor="participante">Nombre de participante :</label>
 
@@ -107,8 +146,8 @@ const WeekEnd = () => {
         </div>
       </div>
       <div className="event">
-        {eventData.map((event) => (
-          <PostWeekend data={event} />
+        {eventData.map((event, index) => (
+          <PostWeekend data={event} img={imagePreview} key={index} />
         ))}
       </div>
       {/* <div className="consign">

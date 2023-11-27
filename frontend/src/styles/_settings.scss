@@ -36,9 +36,6 @@
   $black: #333; /* Noir de jais pour le texte */
   $bkg: #f9f9f9; 
   
-  body {
-    overflow: hidden;
-  }
 
   * {
     textarea {
@@ -69,7 +66,7 @@
     height: 100vh;
     background-color: $color-1;
     color: $black;
-    overflow: hidden;
+    overflow: scroll;
   
     @media screen and (max-width: 430px){
       position: relative;

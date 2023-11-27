@@ -67,7 +67,9 @@
     .event {
         border: 1px solid black;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+
+        text-align: center;
         margin: 50px;
         padding: 20px;
 
@@ -78,6 +80,22 @@
         }
         p {
             font-family: $font-3;
+        }
+
+        .post-weekend {
+            background-color: $pink;
+            margin: 50px;
+            padding: 20px;
+            background: url("../../../public/assets/img/logo-luminelles.png") no-repeat ;
+            background-color: #FFFFFF;
+            min-height: 500px;
+
+      
+
+            img {
+                margin: 20px;
+                border: 1px solid white;
+            }
         }
     }
 }

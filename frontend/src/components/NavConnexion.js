@@ -40,23 +40,23 @@ const NavConnexion = () => {
         </div>
       ) : (
         <div className="user">
-          <a id="envents" onClick={() => navigate("/private/comments")}>
+          <span id="envents" onClick={() => navigate("/private/comments")}>
             Évènements
-          </a>
+          </span>
 
           <div id="usericon" onClick={toggleNavAccount}>
             <i className="fa-regular fa-user"></i>
           </div>
 
           {navAccount && (
-            <ul className="nav-projects">
+            <ul className="nav-account">
               <li
                 className={(nav) =>
                   nav.isActive ? "nav-active hover" : "hover"
                 }
                 onClick={() => navigate("/")}
               >
-                Mon compte
+                <button>Mon compte</button>
               </li>
               <li
                 className={(nav) =>
@@ -66,7 +66,7 @@ const NavConnexion = () => {
                   logOut();
                 }}
               >
-                Se déconnecter
+                <button>Se déconnecter</button>
               </li>
             </ul>
           )}

@@ -77,6 +77,11 @@
   main {
     position: relative;
   }
+  ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
   .button {
     background: $color-3;
     height: 55px;

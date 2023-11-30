@@ -8,6 +8,11 @@
   font-family: $font-3;
   z-index: 1;
 
+  ul a{
+    text-decoration: none;
+  }
+  
+
   &:before {
     content: '';
     position: absolute;
@@ -38,7 +43,6 @@
   }
   ul li {
     margin: 5px;
-
   }
   ul:hover li:not(:hover) {
     opacity: .5;
@@ -48,17 +52,13 @@
     transition: 0.5s;
     transform: scale(1.1);
   }
-
+  
   .nav-portfolio {
     cursor: pointer;
     display: flex;
-    // padding-right: 6rem;
     transition: .5s;
     
-    .nav-projects {
-      font-size: 1rem;
-    }
-
+    
     &:hover .nav-projects,
     .nav-projects:hover {
       
@@ -74,7 +74,7 @@
         margin: 5px;
       }
     }
-
+    
     .nav-projects {
       position: absolute;
       visibility: hidden;
@@ -84,15 +84,15 @@
       transform: translateX(100px);
       transition: .3s ;
       perspective: 500px;
-
+      
       
       li {
+       
         transform: rotatey(30deg) scaleX(1.2);
         transform-origin: center;
         transition: .3s;
         width: 60%;
         text-align: center;
-        // padding: px;
         border-radius: 50px;
         &:hover {
           background: rgb(160, 160, 228);

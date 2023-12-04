@@ -29,12 +29,14 @@
   $color-2: #00c1ec;
   $color-3: #e7f7fe;
   $color-4: rgb(141, 141, 141);
-  $black: rgb(40, 40, 40);
   $red: rgb(253, 87, 87);
+  $pink: #ffd3e0bb; /* Rose doux */
+  $orange: #ffb347; /* Orange pêche */
+  $green: #6ab04c; /* Vert menthe */
+  $blue: #BFE1FF; /*bleu clair*/
+  $black: #333; /* Noir de jais pour le texte */
+  $bkg: #f9f9f9; 
   
-  body {
-    overflow: hidden;
-  }
 
   * {
     textarea {
@@ -65,7 +67,7 @@
     height: 100vh;
     background-color: $color-1;
     color: $black;
-    overflow: hidden;
+    overflow: scroll;
   
     @media screen and (max-width: 430px){
       position: relative;
@@ -75,6 +77,11 @@
   }
   main {
     position: relative;
+  }
+  ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
   .button {
     background: $color-3;

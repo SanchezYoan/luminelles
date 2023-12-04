@@ -1,88 +1,150 @@
 import React, { useState } from "react";
-
-import { SeeMoreData } from "../data/seeMoreData";
+import { useForm, Controller } from "react-hook-form";
+import PostWeekend from "./Private/PrivateProfil/components/PostWeekend";
+// import axios from "axios";
 
 const WeekEnd = () => {
-  const [formData, setFormData] = useState({
-    theme: "",
-    date: "",
-    lieu: { location: "", pictures: "" },
-    numberof: "",
-    activity: [],
-    price: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    console.log(e.target.id);
-    setFormData({ ...formData, [name]: value });
-  };
+  const { handleSubmit, control } = useForm();
+  const [eventData, setEventData] = useState([]);
 
   // Fonction de gestion de la soumission du formulaire
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log();
-  // };
+  const onSubmit = async (data) => {
+    console.log("Données du formulaire soumises: ", data);
+
+    try {
+      // const formData = new FormData();
+      // formData.append("image", data.image[0]);
+
+      // const response = await axios.post(
+      //   "http://localhost:5000/upload",
+      //   formData
+      // );
+      // console.log("Response from server:", response.data);
+
+      // const imageUrl = response.data.imageUrl;
+
+      setEventData([...eventData, { ...data }]);
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    }
+  };
 
   return (
     <div className="seeMore">
-      {/* <Navbar /> */}
       <h1>Week-end Bien-être</h1>
-      {/* <h3>Quelques infos sur le week-end</h3> */}
       <div className="weekend-container">
         <div className="weekend-content">
-          <form action="">
+          <form onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="name">Thème</label>
             <h2>
-              <input onChange={(e) => handleChange(e)} type="text" id="name" />
+              <Controller
+                name="name"
+                control={control}
+                defaultValue=""
+                render={({ field }) => <input {...field} id="name" />}
+              />
             </h2>
+            <label htmlFor="description">Description</label>
+            <br />
+            <Controller
+              name="description"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <textarea
+                  {...field}
+                  id="description"
+                  cols="10"
+                  rows="10"
+                ></textarea>
+              )}
+            />
+            <br />
             <label htmlFor="date">Date</label>
             <h2>
-              <input onChange={(e) => handleChange(e)} type="date" id="date" />
+              <Controller
+                name="date"
+                control={control}
+                defaultValue=""
+                render={({ field }) => (
+                  <input {...field} type="date" id="date" />
+                )}
+              />
             </h2>
             <label htmlFor="lieu">Lieu</label>
             <h2>
-              <input onChange={(e) => handleChange(e)} type="text" />
+              <Controller
+                name="lieu"
+                control={control}
+                defaultValue=""
+                render={({ field }) => (
+                  <input {...field} type="text" id="lieu" />
+                )}
+              />
             </h2>
-            <input
-              onChange={(e) => handleChange(e)}
-              type="file"
-              id="fileInput"
-            />
-            <button onClick="uploadImage()">Télécharger</button>
-            <br />
-            <label htmlFor="participante">Nombre de participante:</label>
-            <select name="pets" id="pet-select">
-              <option value="">--Combien sont-elles ?--</option>
-              <option value="4">4</option>
-              <option value="6">6</option>
-              <option value="8">8</option>
-              <option value="10">10</option>
-              <option value="12">12</option>
-              <option value="14">14</option>
-            </select>
             <br />
             <label htmlFor="activity">Activités</label>
             <br />
-            <textarea
+            <Controller
               name="activity"
-              id="activity"
-              cols="20"
-              rows="10"
-            ></textarea>
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <textarea
+                  {...field}
+                  id="activity"
+                  cols="10"
+                  rows="10"
+                ></textarea>
+              )}
+            />
+            <br />
+            <label htmlFor="HowMuch">Nombre de participantes </label>
+            <Controller
+              name="howMuch"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <select {...field} type="text">
+                  <option value="">?</option>
+                  <option value="6">6</option>
+                  <option value="8">8</option>
+                  <option value="10">10</option>
+                  <option value="12">12</option>
+                  <option value="14">14</option>
+                </select>
+              )}
+            />
+            <br />
             <br />
             <label htmlFor="price">Tarif</label>
             <br />
-            <input type="text" />
+            <Controller
+              name="price"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <input {...field} type="text" id="price" />
+              )}
+            />
+
             <span>&#8364;</span>
+            <br />
+            <button className="button" type="submit">
+              Publier
+            </button>
           </form>
         </div>
-        <div className="info-media"></div>
       </div>
-      <div className="consign">
+      <div className="event">
+        {eventData.map((event, index) => (
+          <PostWeekend data={event} key={index} />
+        ))}
+      </div>
+      {/* <div className="consign">
         <p>{SeeMoreData[0].annulation}</p>
         <p>{SeeMoreData[0].conclusion}</p>
-      </div>
+      </div> */}
     </div>
   );
 };

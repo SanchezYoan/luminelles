@@ -1,26 +1,151 @@
-body {
+.seeMore {
+    background: #ffffff;
 
     h1 {
-        font-family: $font-2;
+        font-family: $font-3;
         font-size: 3rem;
         margin: 20px;
         text-align: center;
+        color: $black;
     }
-
+    
     .weekend-container {
-        text-align: center;
-        background: rgb(92, 127, 222);
+        background: $pink;
+        border-radius: 10px;
+        box-shadow: 0px 10px 20px $blue;
+        
+        filter: brightness(110%);
         margin: 0 400px 0 400px;
-        padding: 20px;
+        padding: 30px;
+        
         .weekend-content {
+            text-align: center;
+            background: #BFE1FF;
+            border-radius: 20px;
+
+            
+            filter: brightness(85%) contrast(150%);
+            padding: 20px;
+
             label {
                 font-family: $font-1;
                 font-size: 1.5rem;
+                color: $black;
+                text-decoration: underline;
             }
             input {
                 margin: 15px;
+                font-size: 0.8rem;
+            }
+            textarea {
+                width: 300px;
+                height: 150px;
+                background: white;
+                font-size: 0.9rem;
+                color: black;
+                margin: 10px;
+            }
+            select {
+                margin-left: 20px;
+            }
+            .button {
+                
+                width: 200px;
+                height: 36px;
+                border-radius: 18px;
+                background-color: #1c89ff;
+                border: solid 1px transparent;
+                color: #fff;
+                font-size: 18px;
+                font-weight: 300;
+                cursor: pointer;
+                transition: all .1s ease-in-out;
+                &:hover {
+                  background-color: transparent;
+                  border-color: #fff;
+                  transition: all .1s ease-in-out;
+                }
+                
+            }
+                        
+            
+        }
+        
+        
+    }
+
+    .event {
+        
+        display: flex;
+        flex-direction: column;
+
+        text-align: center;
+        margin: 50px;
+        padding: 20px;
+
+        h2 {
+            font-family: $font-3;
+            text-decoration: underline;
+            margin-bottom: 20px;
+        }
+        p {
+            font-family: $font-3;
+        }
+
+        .post-weekend {
+            background-color: $pink;
+            border-radius: 10px;
+            box-shadow: 0px 10px 20px $pink;
+            margin: 50px;
+            padding: 20px;
+            background: url("../../../public/assets/img/logo-luminelles.png") no-repeat ;
+            background-color: #FFFFFF;
+            min-height: 500px;
+
+            img {
+                margin: 20px;
+                border: 1px solid white;
             }
 
+            .more {
+                padding: 5px;
+                border: 1px solid black;
+                border-radius: 20px;
+                background: $color-2;
+            }
+            .mins {
+                padding: 5px;
+                border: 1px solid black;
+                border-radius: 20px;
+                background: $red;
+            }
+            p {
+                margin: 15px;
+            }
+            .add {
+                padding: 5px;
+                font-family: $font-1;      
+                background-color: $orange;
+                border-radius: 10px;  
+                color: #fff;
+                cursor: pointer;
+                padding: 8px 16px;
+                    
+                
+                &:hover {
+                    background-image: linear-gradient(90deg, #00C0FF 0%, #FFCF00 49%, #FC4F4F 80%, #00C0FF 100%);
+                    animation:slidebg 5s linear infinite;
+                }
+                animation:slidebg 2s linear infinite;
+            }
+            
+            
+            @keyframes slidebg {
+              to {
+                background-position:20vw;
+              }
+            }
+                  
         }
     }
 }

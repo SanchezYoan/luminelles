@@ -6,6 +6,7 @@
     top: 0px;
     right: 0;
     opacity: 0;
+    z-index: 1;
 
     &:before {
         content: '';
@@ -72,6 +73,9 @@
         min-width: 200px;
         padding: 30px;
         
+        span {
+            cursor: pointer;
+        }
         
         #envents {
 
@@ -117,8 +121,8 @@
 
         }
 
-        &:hover .nav-projects,
-        .nav-projects:hover {
+        &:hover .nav-account,
+        .nav-account:hover {
           
           visibility: visible;
           opacity: 1;
@@ -126,7 +130,7 @@
           
         }
         
-        .nav-projects {
+        .nav-account {
             position: absolute;
             visibility: hidden;
             opacity: 0;
@@ -135,14 +139,18 @@
             transition: .3s ;
             text-align: end;
             li {
-                margin-top: 10px;
-                font-size: 0.6;
-                border: none;
-                cursor: pointer;
+                
+                button {
+                    background: none;
+                    margin-top: 10px;
+                    font-size: 0.6;
+                    border: none;
+                    cursor: pointer;
+                    
+                    &:hover {
+                        text-decoration: underline;
+                    }
 
-                &:hover {
-                    text-decoration: underline;
-                    // background: none;
                 }
               }
             

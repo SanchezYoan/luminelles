@@ -47,7 +47,6 @@ export function UserContextProvider(props) {
   };
 
   //modal
-  const [user, setUser] = useState({ name: "", isAuthentificated: false });
   const [modalState, setModalState] = useState({
     signUpModal: false,
     signInModal: false,
@@ -72,21 +71,11 @@ export function UserContextProvider(props) {
         signInModal: false,
       });
     }
-    if (modal === "connected") {
-      setUser({
-        isAuthentificated: true,
-      });
-    }
-    if (modal === "disconnected") {
-      setUser({
-        isAuthentificated: false,
-      });
-    }
   };
 
   return (
     <UserContext.Provider
-      value={{ modalState, toggleModals, signUp, signIn, currentUser, user }}
+      value={{ modalState, toggleModals, signUp, signIn, currentUser }}
     >
       {!loadingData && props.children}
     </UserContext.Provider>

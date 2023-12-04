@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import PostWeekend from "./Private/PrivateProfil/components/PostWeekend";
-import axios from "axios";
+// import axios from "axios";
 
 const WeekEnd = () => {
   const { handleSubmit, control } = useForm();
@@ -82,6 +82,23 @@ const WeekEnd = () => {
                 )}
               />
             </h2>
+            <br />
+            <label htmlFor="activity">Activités</label>
+            <br />
+            <Controller
+              name="activity"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <textarea
+                  {...field}
+                  id="activity"
+                  cols="10"
+                  rows="10"
+                ></textarea>
+              )}
+            />
+            <br />
             <label htmlFor="HowMuch">Nombre de participantes </label>
             <Controller
               name="howMuch"
@@ -99,21 +116,6 @@ const WeekEnd = () => {
               )}
             />
             <br />
-            <label htmlFor="activity">Activités</label>
-            <br />
-            <Controller
-              name="activity"
-              control={control}
-              defaultValue=""
-              render={({ field }) => (
-                <textarea
-                  {...field}
-                  id="activity"
-                  cols="10"
-                  rows="10"
-                ></textarea>
-              )}
-            />
             <br />
             <label htmlFor="price">Tarif</label>
             <br />

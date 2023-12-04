@@ -70,7 +70,9 @@
       li {
         margin: 0 auto;
         transform: rotatey(0deg);
-        background: yellow;
+        background: $blue;
+        color: white;
+        padding: 5px;
         margin: 5px;
       }
     }

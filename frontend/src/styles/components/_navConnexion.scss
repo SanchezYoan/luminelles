@@ -146,6 +146,10 @@
                     font-size: 0.6;
                     border: none;
                     cursor: pointer;
+                    
+                    &:hover {
+                        text-decoration: underline;
+                    }
 
                 }
               }

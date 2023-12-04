@@ -1,9 +1,8 @@
 .seeMore {
-
-    background: $bkg;
+    background: #ffffff;
 
     h1 {
-        font-family: $font-2;
+        font-family: $font-3;
         font-size: 3rem;
         margin: 20px;
         text-align: center;
@@ -11,19 +10,28 @@
     }
     
     .weekend-container {
-        text-align: center;
-        background: $orange;
+        background: $pink;
+        border-radius: 10px;
+        box-shadow: 0px 10px 20px $blue;
+        
+        filter: brightness(110%);
         margin: 0 400px 0 400px;
-        padding: 20px;
+        padding: 30px;
         
         .weekend-content {
-            background: $pink;
+            text-align: center;
+            background: #BFE1FF;
+            border-radius: 20px;
+
+            
+            filter: brightness(85%) contrast(150%);
             padding: 20px;
 
             label {
                 font-family: $font-1;
                 font-size: 1.5rem;
-                color: wheat;
+                color: $black;
+                text-decoration: underline;
             }
             input {
                 margin: 15px;
@@ -35,6 +43,7 @@
                 background: white;
                 font-size: 0.9rem;
                 color: black;
+                margin: 10px;
             }
             select {
                 margin-left: 20px;

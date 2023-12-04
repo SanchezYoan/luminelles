@@ -13,18 +13,20 @@ const Home = () => {
       </div>
       <div className="intro">
         <div className="intro-container">
-          <div>
-            {HomeData[0].intro1}
+          <div className="intro-contents">
+            <div>
+              {HomeData[0].intro1}
 
-            <i className="fa-solid fa-venus"></i>
-          </div>
-          <div>{HomeData[0].intro2}</div>
-          <div>{HomeData[0].intro3}</div>
-          <div>{HomeData[0].intro4}</div>
-        </div>
-        <div className="img-intro">
-          <div className="profil">
-            {/* <img src="./assets/img/profil.png" alt="" /> */}
+              <i className="fa-solid fa-venus"></i>
+            </div>
+            <div>{HomeData[0].intro2}</div>
+            <div className="profil">
+              <img src="./assets/img/IMG-Arbre.jpg" alt="" />
+              <img src="./assets/img/IMG-bienetre.png" alt="" />
+              <img src="./assets/img/IMG-Yoga.jpg" alt="" />
+            </div>
+            <div>{HomeData[0].intro3}</div>
+            <div>{HomeData[0].intro4}</div>
           </div>
         </div>
       </div>

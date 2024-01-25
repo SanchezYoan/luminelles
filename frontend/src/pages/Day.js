@@ -1,11 +1,30 @@
-import React from "react";
+// WeekEnd.js
+import React, { useState } from "react";
+import NewEvent from "./../components/NewEvent";
+import PostWeekend from "./Private/PrivateProfil/components/PostWeekend";
 
-const Day = () => {
+const WeekEnd = () => {
+  const [eventData, setEventData] = useState([]);
+
+  const handleNewEventSubmit = (data) => {
+    setEventData([...eventData, { ...data }]);
+  };
+
   return (
-    <div>
-      <h1>Journées Bien-être</h1>
+    <div className="seeMore">
+      <h1>Journée Bien-être</h1>
+      <div className="weekend-container">
+        <div className="weekend-content">
+          <NewEvent onSubmitCallback={handleNewEventSubmit} />
+        </div>
+      </div>
+      <div className="event">
+        {eventData.map((event, index) => (
+          <PostWeekend data={event} key={index} />
+        ))}
+      </div>
     </div>
   );
 };
 
-export default Day;
+export default WeekEnd;

@@ -6,6 +6,7 @@
     opacity: 0.9;
     transform: translatey(800px);
     animation: signAnime 0.6s forwards;
+    
 }
 
 @keyframes signAnime {
@@ -27,6 +28,7 @@
         align-items: center;
         text-align: center;
         margin: 0 auto;
+      
 
         i {
 

@@ -1,0 +1,8 @@
+// EVENTS
+export const ADD_EVENT = "ADD_EVENT";
+export const UPDATE_EVENT = "UPDATE_EVENT";
+export const DELETE_EVENT = "DELETE_EVENT";
+// COMMENT
+export const ADD_COMMENT = "ADD_COMMENT";
+export const UPDATE_COMMENT = "UPDATE_COMMENT";
+export const DELETE_COMMENT = "DELETE_COMMENT";

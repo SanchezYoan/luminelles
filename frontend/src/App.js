@@ -16,9 +16,6 @@ const App = () => {
   return (
     <BrowserRouter>
       <Navbar />
-      <NavConnexion />
-      <SignUpModal />
-      <SignInModal />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/weekend" element={<WeekEnd />}></Route>

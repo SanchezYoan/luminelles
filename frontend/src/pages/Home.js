@@ -1,5 +1,8 @@
 import React, { useEffect } from "react";
 import { HomeData } from "../data/homeData";
+import NavConnexion from "../components/NavConnexion";
+import SignUpModal from "../components/SignUpModal";
+import SignInModal from "../components/SignInModal";
 
 const Home = () => {
   useEffect(() => {
@@ -40,6 +43,9 @@ const Home = () => {
 
   return (
     <div className="home">
+      <NavConnexion />
+      <SignUpModal />
+      <SignInModal />
       <div className="logo-luminelles">
         <img
           className="logo"
